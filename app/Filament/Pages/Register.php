@@ -9,7 +9,7 @@ use App\Models\User;
 
 class Register extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-user-add';
+    protected static ?string $navigationIcon = 'heroicon-o-user-plus';
 
     protected static string $view = 'filament.pages.register';
 

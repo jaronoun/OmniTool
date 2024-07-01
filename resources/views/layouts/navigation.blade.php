@@ -34,7 +34,7 @@
 
                     <x-slot name="content">
                         @if (Auth::user()->isAdmin())
-                            <x-dropdown-link :href="route('filament.pages.dashboard')">
+                            <x-dropdown-link :href="route('filament.admin.pages.dashboard')">
                                 Admin
                             </x-dropdown-link>
                         @endif
