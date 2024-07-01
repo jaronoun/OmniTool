@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -59,6 +58,11 @@ class User extends Authenticatable implements JWTSubject
     function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);
+    }
+
+    function isAdmin(): bool
+    {
+        return $this->role->name === 'admin';
     }
 
     protected function settings(): Attribute
