@@ -1,5 +1,5 @@
 <x-filament::page>
-    <form wire:submit.prevent="submit">
+    <form wire:submit="submit">
         {{ $this->form }}
 
         <div class="mt-4">
