@@ -10,6 +10,9 @@ class Deadline extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'description', 'user_id', 'type', 'is_done', 'dates'];
+    protected $casts = [
+        'dates' => 'array',
+    ];
 
     function user()
     {
