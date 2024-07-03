@@ -23,7 +23,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/schedules', \App\Livewire\Schedules::class)->name('schedules');
+Route::get('/schedules', function () {
+    return view('schedule');
+})->name('schedules');
 
 Route::get('/register', Register::class)->name('register');
 

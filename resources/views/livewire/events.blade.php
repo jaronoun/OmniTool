@@ -5,7 +5,7 @@
                 <div class="bg-white dark:bg-gray-800 dark:hover:bg-gray-700 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-4 text-gray-900 dark:text-gray-100">
                         <div class="flex items-center">
-                            <div class="pr-4 bg-blue-500 p-2 rounded-lg text-center">
+                            <div class="pr-4 bg-blue-900 p-2 rounded-lg text-center">
                                 <p class="text-4xl font-bold text-white">
                                     {{ $event->day }}
                                 </p>

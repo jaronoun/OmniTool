@@ -17,10 +17,9 @@
             rel="stylesheet" />
 
         <!-- TW Elements styles-->
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-
+{{--        <link--}}
+{{--            rel="stylesheet"--}}
+{{--            href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />--}}
         <!-- Tailwind CSS config -->
         <script src="https://cdn.tailwindcss.com/3.3.0"></script>
         <script>
@@ -42,7 +41,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="dark font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
@@ -54,14 +53,11 @@
                     </div>
                 </header>
             @endif
-
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
-{{--        <script--}}
-{{--            type="text/javascript"--}}
-{{--            src="/node_modules/tw-elements/js/tw-elements.umd.min.js"></script>--}}
+    @vite('resources/js/app.js')
     </body>
 </html>

@@ -4,5 +4,11 @@
 {{--            {{ __('Dashboard') }}--}}
 {{--        </h2>--}}
 {{--    </x-slot>--}}
-    @livewire('events')
+{{--    @if (request()->routeIs('dashboard'))--}}
+        @livewire('events')
+{{--    @endif--}}
+
+{{--    @if(request()->routeIs('schedules'))--}}
+{{--        @liveWire('schedules')--}}
+{{--    @endif--}}
 </x-app-layout>
