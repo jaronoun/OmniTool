@@ -1,14 +1,8 @@
 <x-app-layout>
-{{--    <x-slot name="header">--}}
-{{--        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">--}}
-{{--            {{ __('Dashboard') }}--}}
-{{--        </h2>--}}
-{{--    </x-slot>--}}
-{{--    @if (request()->routeIs('dashboard'))--}}
+    <div class="flex justify-center">
+        @livewire('tasks')
         @livewire('events')
-{{--    @endif--}}
-
-{{--    @if(request()->routeIs('schedules'))--}}
-{{--        @liveWire('schedules')--}}
-{{--    @endif--}}
+        @livewire('todos')
+    </div>
+    @livewire('create-t-e-t')
 </x-app-layout>

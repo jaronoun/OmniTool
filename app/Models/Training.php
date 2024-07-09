@@ -9,7 +9,7 @@ class Training extends Model
 {
     use HasFactory;
     protected $table = 'training';
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'schedule_id'];
 
     function schedule()
     {

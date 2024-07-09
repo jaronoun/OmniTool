@@ -30,8 +30,7 @@ class TaskResource extends Resource
                     ->label('Name')
                     ->required(),
                 Forms\Components\TextInput::make('description')
-                    ->label('Description')
-                    ->required(),
+                    ->label('Description'),
                 Forms\Components\Checkbox::make('is_done')
                     ->label('Is Done'),
                 Forms\Components\Repeater::make('periodic')
@@ -40,10 +39,10 @@ class TaskResource extends Resource
                         Forms\Components\Select::make('type')
                             ->label('Type')
                             ->options([
-                                'daily' => 'Daily',
-                                'weekly' => 'Weekly',
-                                'monthly' => 'Monthly',
-                                'yearly' => 'Yearly',
+                                'day' => 'Daily',
+                                'week' => 'Weekly',
+                                'month' => 'Monthly',
+                                'year' => 'Yearly',
                             ]),
                         Forms\Components\TextInput::make('interval')
                             ->label('Interval')

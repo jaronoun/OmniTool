@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserExercise extends Model
 {
     use HasFactory;
-    protected $fillable = ['exercise_id','training_id', 'sets'];
+    protected $fillable = ['id', 'name', 'exercise_id','training_id', 'sets'];
 
     function training()
     {
