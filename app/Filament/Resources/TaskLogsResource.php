@@ -4,22 +4,20 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\LogResource\Pages;
 use App\Filament\Resources\LogResource\RelationManagers;
-use App\Models\Log;
+use App\Models\TaskLogs;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class LogResource extends Resource
+class TaskLogsResource extends Resource
 {
-    protected static ?string $model = Log::class;
+    protected static ?string $model = TaskLogs::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Log';
+    protected static ?string $navigationLabel = 'TaskLogs';
 
     protected static ?string $navigationGroup = 'Data';
 
@@ -27,13 +25,6 @@ class LogResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('user_id')
-                    ->label('User')
-                    ->options(\App\Models\User::all()->pluck('name', 'id')->toArray())
-                    ->required(),
-                Forms\Components\Select::make('deadline_id')
-                    ->label('Deadline')
-                    ->options(\App\Models\Deadline::all()->pluck('name', 'id')->toArray()),
                 Forms\Components\Select::make('task_id')
                     ->label('Task')
                     ->options(\App\Models\Task::all()->pluck('name', 'id')->toArray()),
@@ -75,9 +66,9 @@ class LogResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLogs::route('/'),
-            'create' => Pages\CreateLog::route('/create'),
-            'edit' => Pages\EditLog::route('/{record}/edit'),
+            'index' => Pages\ListTaskLogs::route('/'),
+            'create' => Pages\CreateTaskLogs::route('/create'),
+            'edit' => Pages\EditTaskLogs::route('/{record}/edit'),
         ];
     }
 }

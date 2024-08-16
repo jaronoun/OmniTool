@@ -28,6 +28,10 @@ class UserExerciseResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Name')
                     ->required(),
+                Forms\Components\Select::make('user_id')
+                    ->label('User')
+                    ->options(\App\Models\User::all()->pluck('name', 'id')->toArray())
+                    ->required(),
                 Forms\Components\Select::make('exercise_id')
                     ->label('Exercise')
                     ->options(\App\Models\Exercise::all()->pluck('name', 'id')->toArray())
@@ -57,6 +61,9 @@ class UserExerciseResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('user_id')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('exercise_id')

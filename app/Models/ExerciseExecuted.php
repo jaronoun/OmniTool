@@ -10,21 +10,11 @@ class ExerciseExecuted extends Model
 {
     use HasFactory;
     protected $table = 'exercise_executed';
-    protected $fillable = ['user_id', 'user_exercise_id', 'exercise_id', 'sets'];
-
-    function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['user_exercise_id', 'sets'];
 
     function userExcercise()
     {
         return $this->belongsTo(UserExercise::class);
-    }
-
-    function exercise()
-    {
-        return $this->belongsTo(Exercise::class);
     }
 
     protected function sets(): Attribute

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserExercise extends Model
 {
     use HasFactory;
-    protected $fillable = ['id', 'name', 'exercise_id','training_id', 'sets'];
+    protected $fillable = ['id', 'name', 'exercise_id','training_id', 'sets', 'user_id'];
 
     function training()
     {
@@ -24,6 +24,11 @@ class UserExercise extends Model
     function exerciseExecuted()
     {
         return $this->hasMany(ExerciseExecuted::class, 'user_exercise_id');
+    }
+
+    function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     protected function sets(): Attribute

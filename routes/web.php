@@ -16,16 +16,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/schedules', function () {
-    return view('schedule');
-})->name('schedules');
+Route::prefix('schedules')->group(function () {
+    Route::get('/', function () {
+        return view('schedule');
+    })->name('schedules');
+
+    Route::get('{scheduleId}', function () {
+        return view('schedule');
+    })->name('schedule.show');
+
+    Route::get('{scheduleId}/{trainingId}', function () {
+        return view('schedule');
+    })->name('training.show');
+
+    Route::get('{scheduleId}/{trainingId}/{usexId}', function () {
+        return view('schedule');
+    })->name('usex.show');
+});
 
 Route::get('/register', Register::class)->name('register');
 

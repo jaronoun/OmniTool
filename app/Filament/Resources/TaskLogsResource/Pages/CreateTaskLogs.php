@@ -3,10 +3,11 @@
 namespace App\Filament\Resources\LogResource\Pages;
 
 use App\Filament\Resources\LogResource;
+use App\Filament\Resources\TaskLogsResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateLog extends CreateRecord
+class CreateTaskLogs extends CreateRecord
 {
-    protected static string $resource = LogResource::class;
+    protected static string $resource = TaskLogsResource::class;
 }

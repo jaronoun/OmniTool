@@ -6,24 +6,14 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Log extends Model
+class TodoLogs extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'task_id', 'deadline_id', 'data'];
+    protected $fillable = ['todo_id', 'data'];
 
-    function user()
+    function todo()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    function task()
-    {
-        return $this->belongsTo(Task::class);
-    }
-
-    function deadline()
-    {
-        return $this->belongsTo(Deadline::class);
+        return $this->belongsTo(Todo::class);
     }
 
     protected function data(): Attribute
@@ -33,5 +23,4 @@ class Log extends Model
             set: fn ($value) => json_encode($value),
         );
     }
-
 }

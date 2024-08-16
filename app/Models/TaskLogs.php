@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class TaskLogs extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'user_id', 'type', 'is_done', 'periodic'];
+    protected $fillable = ['task_id', 'data'];
 
-    function user()
+    function task()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Task::class);
     }
 
-    protected function periodic(): Attribute
+    protected function data(): Attribute
     {
         return Attribute::make(
             get: fn ($value) => json_decode($value, true),

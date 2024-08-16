@@ -27,13 +27,9 @@ class ExerciseExecutedResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('user_id')
-                    ->label('User')
-                    ->options(\App\Models\User::all()->pluck('name', 'id')->toArray())
-                    ->required(),
                 Forms\Components\Select::make('user_exercise_id')
                     ->label('User Exercise')
-                    ->options(\App\Models\UserExercise::all()->pluck('id', 'id')->toArray())
+                    ->options(\App\Models\UserExercise::all()->pluck('name', 'id')->toArray())
                     ->required(),
                 Forms\Components\Repeater::make('sets')
                     ->label('Sets')
@@ -55,9 +51,6 @@ class ExerciseExecutedResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id')
-                    ->searchable()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('user_exercise_id')
                     ->searchable()
                     ->sortable(),

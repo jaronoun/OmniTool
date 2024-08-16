@@ -58,6 +58,7 @@
                 {{ $slot }}
             </main>
         </div>
-    @vite('resources/js/app.js')
+        @livewire('wire-elements-modal')
+        @vite('resources/js/app.js')
     </body>
 </html>
